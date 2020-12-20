@@ -1,5 +1,8 @@
 const videoElement = document.getElementById('video');
 const button = document.getElementById('button');
+const buttonContainer = document.getElementById('button-container');
+const selectMediabutton = document.getElementById('selectMedia');
+const selectMediaContainer = document.getElementById('selectMedia-container');
 
 // Promt to select media stream, pass to video element, then play
 async function selectMediaStream() {
@@ -14,6 +17,12 @@ async function selectMediaStream() {
   }
 }
 
+selectMediabutton.addEventListener('click', async () => {
+  await selectMediaStream();
+  selectMediaContainer.hidden = true;
+  buttonContainer.hidden = false;
+});
+
 button.addEventListener('click', async () => {
   //disable button
   button.disabled = true;
@@ -24,4 +33,4 @@ button.addEventListener('click', async () => {
 });
 
 // On Load
-selectMediaStream();
+//selectMediaStream();
